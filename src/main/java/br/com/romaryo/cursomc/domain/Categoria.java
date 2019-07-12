@@ -1,4 +1,4 @@
-package br.com.romaryo.cursomc.domain;
+ package br.com.romaryo.cursomc.domain;
 
 import java.io.Serializable;
 
