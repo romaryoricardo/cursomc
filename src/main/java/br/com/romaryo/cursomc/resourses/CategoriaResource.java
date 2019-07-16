@@ -23,6 +23,7 @@ public class CategoriaResource {
 	private CategoriaService service;
 	
 	
+	// ACESSAR DADO
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Categoria> find(@PathVariable Integer id) throws ObjectNotFoundException{
 		
@@ -30,6 +31,7 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	// SAVE
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody Categoria obj) {
 		obj = service.insert(obj);
@@ -40,6 +42,7 @@ public class CategoriaResource {
 		
 	}
 	
+	// EDIT
 	@RequestMapping(value="/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody Categoria obj, @PathVariable Integer id) throws ObjectNotFoundException{
 		obj.setId(id);
@@ -47,5 +50,12 @@ public class CategoriaResource {
 		
 		return ResponseEntity.noContent().build();
 		
+	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable Integer id) throws ObjectNotFoundException{
+		
+		service.delete(id);
+		return ResponseEntity.noContent().build();
 	}
 }
