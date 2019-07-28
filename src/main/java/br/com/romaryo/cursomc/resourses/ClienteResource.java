@@ -53,7 +53,7 @@ public class ClienteResource {
 	
 	// EDIT
 		@RequestMapping(value="/{id}", method = RequestMethod.PUT)
-		public ResponseEntity<Void> update(@RequestBody ClienteDTO objDto, @PathVariable Integer id) throws ObjectNotFoundException{
+		public ResponseEntity<Void> update(@Valid @RequestBody ClienteDTO objDto, @PathVariable Integer id) throws ObjectNotFoundException{
 			Cliente obj = service.fromDTO(objDto);
 			obj.setId(id);
 			obj = service.update(obj);
